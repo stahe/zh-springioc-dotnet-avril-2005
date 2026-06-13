@@ -57,6 +57,8 @@
     
       <link rel="stylesheet" href="stylesheets/focus.css">
     
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -357,14 +359,14 @@
   
   
     <li class="md-nav__item">
-      <a href="onghianhuanioc.html" class="md-nav__link">
+      <a href="onghianhuan-ioc.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. 控制反转（IoC）
+    3. 控制反转 IoC
   
 
     
@@ -411,14 +413,14 @@
   
   
     <li class="md-nav__item">
-      <a href="spring-ioc-hiian.html" class="md-nav__link">
+      <a href="spring-ioc-hiianhian.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. Spring IoC 实践
+    5. Spring IoC 实践指南
   
 
     
@@ -539,7 +541,7 @@
   <a href="#72-istiastspring3tierdao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.2. 包 [istia.st.spring3tier.dao]
+        7.2. [istia.st.spring3tier.dao] 包
       
     </span>
   </a>
@@ -550,7 +552,7 @@
   <a href="#73-istiastspring3tierdomain" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.3. [istia.st.spring3tier.domain] 包
+        7.3. 包 [istia.st.spring3tier.domain]
       
     </span>
   </a>
@@ -572,7 +574,7 @@
   <a href="#75-spring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.5. [Spring] 配置文件
+        7.5. 配置文件 [Spring]
       
     </span>
   </a>
@@ -594,7 +596,7 @@
   <a href="#77-spring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.7. 另一种 Spring 配置文件
+        7.7. 另一种 Spring 配置文件类型
       
     </span>
   </a>
@@ -602,10 +604,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#78" class="md-nav__link">
+  <a href="#78-conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.8. 结论
+        7.8. Conclusion
       
     </span>
   </a>
@@ -666,35 +668,35 @@
 
 <h1 id="7">7. <span style="color: #365f91">解决方案</span></h1>
 <h2 id="71-visual-studio">7.1. <span style="color: #4f81bd">Visual Studio 项目</span></h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000DB0000016CB0410FE4.png" width="219" height="364" style="display:inline-block; margin:4px;width:5.793cm;height:9.629cm;" class="odt-zoomable" data-zoom-src="images/10000000000000DB0000016CB0410FE4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001040000019F04D12BF4.png" width="260" height="415" style="display:inline-block; margin:4px;width:6.877cm;height:10.977cm;" class="odt-zoomable" data-zoom-src="images/10000000000001040000019F04D12BF4.png" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000000DB0000016CB0410FE4.png" width="219" height="364" style="display:inline-block; margin:4px;width:5.793cm;height:9.627cm;" class="odt-zoomable" data-zoom-src="images/10000000000000DB0000016CB0410FE4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000001040000019F04D12BF4.png" width="260" height="415" style="display:inline-block; margin:4px;width:6.877cm;height:10.977cm;" class="odt-zoomable" data-zoom-src="images/10000000000001040000019F04D12BF4.png" /></td></tr></table>
 
 <p><strong>注释</strong>：</p>
 <ul>
   <li>Spring 所需的文件已放置在 [bin] 文件夹中：Spring.Core.dll、log4net.dll、Spring.Core.xml
   </li>
-  <li>Spring 配置文件 [spring-config-3tier-*.xml] 也已放置在 [bin] 文件夹中
+  <li>Spring的配置文件[spring-config-3tier-*.xml]也已放置在文件夹[bin]中
   </li>
-  <li>在 [istia] 根目录下，您将找到该应用程序的各类类文件
+  <li>在根目录 [istia] 下，包含应用程序的各个类
   </li>
 </ul>
 
-<p>该项目已配置为在 [bin] 文件夹中生成 [spring3tier.dll] DLL：</p>
-<p><img src="images/10000000000001DB000000C4643F7B40.png" width="475" height="196" style="width:12.564cm;height:5.184cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DB000000C4643F7B40.png" /></p>
-<h2 id="72-istiastspring3tierdao">7.2. <span style="color: #4f81bd"><strong>包 [istia.st.spring3tier.dao]</strong></span></h2>
+<p>该项目已配置为在 [bin] 文件夹中生成 DLL 和 [spring3tier.dll]：</p>
+<p><img src="images/10000000000001DB000000C4643F7B40.png" width="475" height="196" style="width:12.564cm;height:5.186cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DB000000C4643F7B40.png" /></p>
+<h2 id="72-istiastspring3tierdao">7.2. <span style="color: #4f81bd"><strong>[istia.st.spring3tier.dao] 包</strong></span></h2>
 <p><strong>IDao</strong> 接口：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.spring3tier.dao</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Interface</span><span class="w"> </span><span class="n">IDao</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="c">&#39; do something in the [dao] layer</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">         </span><span class="c">&#39; 在图层中执行某项操作 [dao]</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInDaoLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Interface</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
-<p>第一个实现类：</p>
+<p>一种初始实现：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.spring3tier.dao</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">DaoImpl1</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="k">Implements</span><span class="w"> </span><span class="n">istia</span><span class="p">.</span><span class="n">st</span><span class="p">.</span><span class="n">spring3tier</span><span class="p">.</span><span class="n">dao</span><span class="p">.</span><span class="n">IDao</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="c">&#39; do something in the diaper [dao]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">         </span><span class="c">&#39; 在图层中执行某项操作 [dao]</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInDaoLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="k">Implements</span><span class="w"> </span><span class="n">IDao</span><span class="p">.</span><span class="n">doSomethingInDaoLayer</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="k">Return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
@@ -706,7 +708,7 @@
 <ul>
   <li>该类没有私有字段
   </li>
-  <li>[doSomethingInDaoLayer] 方法按要求返回其参数的总和。
+  <li>方法 [doSomethingInDaoLayer] 按要求返回其参数的总和。
   </li>
 </ul>
 
@@ -715,7 +717,7 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">DaoImpl2</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="k">Implements</span><span class="w"> </span><span class="n">istia</span><span class="p">.</span><span class="n">st</span><span class="p">.</span><span class="n">spring3tier</span><span class="p">.</span><span class="n">dao</span><span class="p">.</span><span class="n">IDao</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="c">&#39; do something in the diaper [dao]</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">         </span><span class="c">&#39; 在图层中执行某项操作 [dao]</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInDaoLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="k">Implements</span><span class="w"> </span><span class="n">IDao</span><span class="p">.</span><span class="n">doSomethingInDaoLayer</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="k">Return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
@@ -727,40 +729,41 @@
 <ul>
   <li>该类没有私有字段
   </li>
-  <li>[doSomethingInDaoLayer] 方法按要求返回其参数之间的差值。
+  <li>方法 [doSomethingInDaoLayer] 按要求返回其参数的差值。
   </li>
 </ul>
-<h2 id="73-istiastspring3tierdomain">7.3. <span style="color: #4f81bd">[istia.st.spring3tier.domain] 包</span></h2>
-<p><strong>IDomain</strong> 接口：</p>
+
+<h2 id="73-istiastspring3tierdomain">7.3. <span style="color: #4f81bd">包 [istia.st.spring3tier.domain]</span></h2>
+<p>接口 <strong>IDomain</strong>：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.spring3tier.domain</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Interface</span><span class="w"> </span><span class="n">IDomain</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="c">&#39; do something in the [domain] layer</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">         </span><span class="c">&#39; 在 [domain] 层中执行某项操作</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInDomainLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Interface</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
-<p>第一个实现类 <strong>IDomainImpl1</strong>：</p>
+<p><strong>IDomainImpl1</strong> 的首个实现类：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">istia.st.spring3tier.dao</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.spring3tier.domain</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">DomainImpl1</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="k">Implements</span><span class="w"> </span><span class="n">istia</span><span class="p">.</span><span class="n">st</span><span class="p">.</span><span class="n">spring3tier</span><span class="p">.</span><span class="n">domain</span><span class="p">.</span><span class="n">IDomain</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="c">&#39; private fields</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">         </span><span class="c">&#39; 私有字段</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">_dao</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDao</span>
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="c">&#39; associated property</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">         </span><span class="c">&#39; 关联属性</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">WriteOnly</span><span class="w"> </span><span class="k">Property</span><span class="w"> </span><span class="nf">dao</span><span class="p">()</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDao</span>
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">            </span><span class="k">Set</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDao</span><span class="p">)</span>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">                </span><span class="n">_dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Value</span>
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="k">End</span><span class="w"> </span><span class="k">Set</span>
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Property</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="c">&#39; default builder</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">         </span><span class="c">&#39; 默认构造函数</span>
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">New</span><span class="p">()</span>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="c">&#39; do something in the [domain] layer</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">         </span><span class="c">&#39; 在 [domain] 层中执行某项操作</span>
 <a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInDomainLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="k">Implements</span><span class="w"> </span><span class="n">IDomain</span><span class="p">.</span><span class="n">doSomethingInDomainLayer</span>
 <a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">            </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">            </span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
@@ -771,9 +774,9 @@
 <a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
 <ul>
-  <li>该类有一个私有字段，该字段是一个指向 [IDao] 类型单例的引用，用于访问 [Dao] 层。当对象被构造时，该字段将由 Spring（依赖注入）进行初始化。
+  <li>该类有一个私有字段，该字段引用了类型为 [IDao] 的单例，该单例提供对 [Dao] 层的访问。该字段将在对象构造时由 Spring（依赖注入）进行初始化。
   </li>
-  <li>[doSomethingInDomainLayer] 方法会递增其参数，然后将它们传递给 [dao] 单例的 [doSomethingInDaoLayer] 方法
+  <li>方法 [doSomethingInDomainLayer] 会递增其参数，然后将这些参数传递给单例 [dao] 的方法 [doSomethingInDaoLayer]
   </li>
 </ul>
 
@@ -784,21 +787,21 @@
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">DomainImpl2</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="k">Implements</span><span class="w"> </span><span class="n">istia</span><span class="p">.</span><span class="n">st</span><span class="p">.</span><span class="n">spring3tier</span><span class="p">.</span><span class="n">domain</span><span class="p">.</span><span class="n">IDomain</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="c">&#39; private fields</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">         </span><span class="c">&#39; 私有字段</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">_dao</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDao</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="c">&#39; associated property</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">         </span><span class="c">&#39; 关联属性</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">WriteOnly</span><span class="w"> </span><span class="k">Property</span><span class="w"> </span><span class="nf">dao</span><span class="p">()</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDao</span>
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">            </span><span class="k">Set</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDao</span><span class="p">)</span>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">                </span><span class="n">_dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Value</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">            </span><span class="k">End</span><span class="w"> </span><span class="k">Set</span>
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Property</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="c">&#39; default builder</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">         </span><span class="c">&#39; 默认构造函数</span>
 <a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">New</span><span class="p">()</span>
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="c">&#39; do something in the [domain] layer</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">         </span><span class="c">&#39; 在 [domain] 层中执行某项操作</span>
 <a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInDomainLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="k">Implements</span><span class="w"> </span><span class="n">IDomain</span><span class="p">.</span><span class="n">doSomethingInDomainLayer</span>
 <a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">            </span><span class="n">a</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">            </span><span class="n">b</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
@@ -809,42 +812,43 @@
 <a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
 <ul>
-  <li>该类有一个私有字段，该字段是 [IDao] 单例的引用，用于访问 [Dao] 层。当对象被构造时，该字段将由 Spring（依赖注入）进行初始化。
+  <li>该类有一个私有字段，该字段引用了类型为 [IDao] 的单例，该单例提供对 [Dao] 层的访问。该字段将在对象构造时由 Spring（依赖注入）进行初始化。
   </li>
-  <li>[doSomethingInDomainLayer] 方法会递减其参数，然后将它们传递给 [dao] 单例的 [doSomethingInDaoLayer] 方法
+  <li>方法 [doSomethingInDomainLayer] 会递减其参数，然后将它们传递给单例 [dao] 的方法 [doSomethingInDaoLayer]
   </li>
 </ul>
+
 <h2 id="74-istiastspring3tiercontrol">7.4. <span style="color: #4f81bd">[istia.st.spring3tier.control] 包</span></h2>
-<p><strong>IControl</strong> 接口：</p>
+<p>接口 <strong>IControl</strong>：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.spring3tier.control</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Interface</span><span class="w"> </span><span class="n">IControl</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="c">&#39; do something in the [control] layer</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">         </span><span class="c">&#39; 在 [control] 层中执行某项操作</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInControlLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Interface</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
-<p>第一个实现类 <strong>ControlImpl1</strong>：</p>
+<p><strong>ControlImpl1</strong> 的首个实现类：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">istia.st.spring3tier.domain</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.spring3tier.control</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">ControlImpl1</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="k">Implements</span><span class="w"> </span><span class="n">istia</span><span class="p">.</span><span class="n">st</span><span class="p">.</span><span class="n">spring3tier</span><span class="p">.</span><span class="n">control</span><span class="p">.</span><span class="n">IControl</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="c">&#39; private fields</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">         </span><span class="c">&#39; 私有字段</span>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">_domain</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDomain</span>
 <a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="c">&#39; associated property</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">         </span><span class="c">&#39; 关联属性</span>
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">WriteOnly</span><span class="w"> </span><span class="k">Property</span><span class="w"> </span><span class="nf">domain</span><span class="p">()</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDomain</span>
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="k">Set</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDomain</span><span class="p">)</span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">                </span><span class="n">_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Value</span>
 <a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="k">End</span><span class="w"> </span><span class="k">Set</span>
 <a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Property</span>
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">        </span><span class="c">&#39; default builder</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">         </span><span class="c">&#39; 默认构造函数</span>
 <a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">New</span><span class="p">()</span>
 <a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
-<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">        </span><span class="c">&#39; do something in the [control] layer</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">         </span><span class="c">&#39; 在 [control] 层中执行某项操作</span>
 <a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInControlLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="k">Implements</span><span class="w"> </span><span class="n">IControl</span><span class="p">.</span><span class="n">doSomethingInControlLayer</span>
 <a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">            </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">            </span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
@@ -855,9 +859,9 @@
 <a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
 <ul>
-  <li>该类有一个私有字段，该字段是一个指向 [IDomain] 类型单例的引用，该单例提供了对 [Domain] 层的访问。当对象被构造时，该字段将由 Spring（依赖注入）进行初始化。
+  <li>该类有一个私有字段，该字段引用了类型为 [IDomain] 的单例，该单例提供对 [Domain] 层的访问。该字段将在对象构造时由 Spring（依赖注入）进行初始化。
   </li>
-  <li>[doSomethingInControlLayer] 方法会递增其参数，然后将它们传递给 [domain] 单例的 [doSomethingInDomainLayer] 方法
+  <li>方法 [doSomethingInControlLayer] 会递增其参数，然后将这些参数传递给单例 [domain] 中的方法 [doSomethingInDomainLayer]
   </li>
 </ul>
 
@@ -868,21 +872,21 @@
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">ControlImpl2</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="k">Implements</span><span class="w"> </span><span class="n">istia</span><span class="p">.</span><span class="n">st</span><span class="p">.</span><span class="n">spring3tier</span><span class="p">.</span><span class="n">control</span><span class="p">.</span><span class="n">IControl</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="c">&#39; private fields</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">         </span><span class="c">&#39; 私有字段</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">_domain</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDomain</span>
 <a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="c">&#39; associated property</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">         </span><span class="c">&#39; 关联属性</span>
 <a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">WriteOnly</span><span class="w"> </span><span class="k">Property</span><span class="w"> </span><span class="nf">domain</span><span class="p">()</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDomain</span>
 <a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">            </span><span class="k">Set</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IDomain</span><span class="p">)</span>
 <a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">                </span><span class="n">_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Value</span>
 <a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">            </span><span class="k">End</span><span class="w"> </span><span class="k">Set</span>
 <a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Property</span>
 <a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">        </span><span class="c">&#39; default builder</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">         </span><span class="c">&#39; 默认构造函数</span>
 <a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">New</span><span class="p">()</span>
 <a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">        </span><span class="c">&#39; do something in the [control] layer</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">         </span><span class="c">&#39; 在 [control] 层中执行某项操作</span>
 <a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInControlLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="k">Implements</span><span class="w"> </span><span class="n">IControl</span><span class="p">.</span><span class="n">doSomethingInControlLayer</span>
 <a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">            </span><span class="n">a</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">            </span><span class="n">b</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
@@ -893,26 +897,27 @@
 <a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
 <ul>
-  <li>该类有一个私有字段，该字段是一个指向 [IDomain] 类型单例的引用，该单例提供对 [Domain] 层的访问。当对象被构造时，该字段将由 Spring（依赖注入）进行初始化。
+  <li>该类有一个私有字段，该字段引用了类型为 [IDomain] 的单例，该单例提供对 [Domain] 层的访问。该字段将在对象构造时由 Spring（依赖注入）进行初始化。
   </li>
-  <li>[doSomethingInControlLayer] 方法会递减其参数的值，然后将它们传递给 [domain] 单例的 [doSomethingInDomainLayer] 方法。
+  <li>方法 [doSomethingInControlLayer] 会递减其参数，然后将这些参数传递给单例 [domain] 的方法 [doSomethingInDomainLayer]。
   </li>
 </ul>
-<h2 id="75-spring">7.5. <span style="color: #4f81bd">[Spring] 配置文件</span></h2>
-<p>[spring-config-3tier-1.xml] 文件使用第 1 版的实现：</p>
+
+<h2 id="75-spring">7.5. <span style="color: #4f81bd">配置文件 [Spring]</span></h2>
+<p>文件 [spring-config-3tier-1.xml] 使用以下实现的第 1 版：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot; ?&gt;</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="cp">&lt;!DOCTYPE objects PUBLIC &quot;-//SPRING//DTD OBJECT//EN&quot;</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="cp">&quot;http://www.springframework.net/dtd/spring-objects.dtd&quot;&gt;</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nt">&lt;objects&gt;</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">     </span><span class="cm">&lt;!-- the dao class --&gt;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">     </span><span class="cm">&lt;!-- DAO类 --&gt;</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;dao&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.dao.DaoImpl1, spring3tier&quot;</span><span class="nt">&gt;&lt;/object&gt;</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">     </span><span class="cm">&lt;!-- the domain class --&gt;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">     </span><span class="cm">&lt;!-- 域类 --&gt;</span>
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;domain&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.domain.DomainImpl1, spring3tier&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dao&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">            </span><span class="nt">&lt;ref</span><span class="w"> </span><span class="na">object=</span><span class="s">&quot;dao&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="nt">&lt;/property&gt;</span>
 <a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="nt">&lt;/object&gt;</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">     </span><span class="cm">&lt;!-- the control class --&gt;</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">     </span><span class="cm">&lt;!-- 控制类 --&gt;</span>
 <a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;control&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.control.ControlImpl1, spring3tier&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;domain&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">            </span><span class="nt">&lt;ref</span><span class="w"> </span><span class="na">object=</span><span class="s">&quot;domain&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -920,20 +925,20 @@
 <a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="nt">&lt;/object&gt;</span>
 <a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="nt">&lt;/objects&gt;</span>
 </code></pre></div>
-<p>[spring-config-3tier-2.xml] 文件使用的是第 2 版的实现：</p>
+<p>文件 [spring-config-3tier-2.xml] 使用以下实现的第 2 版：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot; ?&gt;</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="cp">&lt;!DOCTYPE objects PUBLIC &quot;-//SPRING//DTD OBJECT//EN&quot;</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="cp">&quot;http://www.springframework.net/dtd/spring-objects.dtd&quot;&gt;</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nt">&lt;objects&gt;</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">     </span><span class="cm">&lt;!-- the dao class --&gt;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">     </span><span class="cm">&lt;!-- DAO类 --&gt;</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;dao&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.dao.DaoImpl2, spring3tier&quot;</span><span class="nt">&gt;&lt;/object&gt;</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">     </span><span class="cm">&lt;!-- the domain class --&gt;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">     </span><span class="cm">&lt;!-- 域类 --&gt;</span>
 <a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;domain&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.domain.DomainImpl2, spring3tier&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dao&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">            </span><span class="nt">&lt;ref</span><span class="w"> </span><span class="na">object=</span><span class="s">&quot;dao&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="nt">&lt;/property&gt;</span>
 <a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="nt">&lt;/object&gt;</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">     </span><span class="cm">&lt;!-- the control class --&gt;</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">     </span><span class="cm">&lt;!-- 控制类 --&gt;</span>
 <a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;control&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.control.ControlImpl2, spring3tier&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;domain&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">            </span><span class="nt">&lt;ref</span><span class="w"> </span><span class="na">object=</span><span class="s">&quot;domain&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -942,7 +947,7 @@
 <a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="nt">&lt;/objects&gt;</span>
 </code></pre></div>
 <h2 id="76-istiastspring3tiertests">7.6. <span style="color: #4f81bd">测试包 [istia.st.spring3tier.tests]</span></h2>
-<p>一个 NUnit 测试 [NunitTestSpring3tier.vb]：</p>
+<p>一个 Nunit 测试 [NunitTestSpring3tier.vb]：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">System</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">Spring.Objects.Factory.Xml</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">System.IO</span>
@@ -954,38 +959,38 @@
 <a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
 <a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">TestFixture</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span>_
 <a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">NunitTestSpring3tier</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">        </span><span class="c">&#39; the singleton factories</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">         </span><span class="c">&#39; 单例工厂</span>
 <a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">factory1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">XmlObjectFactory</span>
 <a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">factory2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">XmlObjectFactory</span>
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">        </span><span class="o">&lt;</span><span class="n">SetUp</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span>_
 <a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">            </span><span class="c">&#39; singleton factories are created</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">             </span><span class="c">&#39; 创建单例工厂</span>
 <a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">            </span><span class="n">factory1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">New</span><span class="w"> </span><span class="n">XmlObjectFactory</span><span class="p">(</span><span class="k">New</span><span class="w"> </span><span class="n">FileStream</span><span class="p">(</span><span class="s">&quot;spring-config-3tier-1.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">))</span>
 <a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">            </span><span class="n">factory2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">New</span><span class="w"> </span><span class="n">XmlObjectFactory</span><span class="p">(</span><span class="k">New</span><span class="w"> </span><span class="n">FileStream</span><span class="p">(</span><span class="s">&quot;spring-config-3tier-2.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">))</span>
 <a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
 <a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">        </span><span class="o">&lt;</span><span class="n">TearDown</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span>_
 <a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">destroy</span><span class="p">()</span>
-<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">            </span><span class="c">&#39; we destroy the singletons</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">             </span><span class="c">&#39; 销毁单例</span>
 <a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">            </span><span class="n">factory1</span><span class="p">.</span><span class="n">Dispose</span><span class="p">()</span>
 <a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w">            </span><span class="n">factory2</span><span class="p">.</span><span class="n">Dispose</span><span class="p">()</span>
-<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="w">            </span><span class="c">&#39; we free the singletons factories</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="w">             </span><span class="c">&#39; 释放单例工厂</span>
 <a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="w">            </span><span class="n">factory1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Nothing</span>
 <a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="w">            </span><span class="n">factory2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Nothing</span>
 <a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>
 <a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">        </span><span class="o">&lt;</span><span class="n">Test</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span>_
 <a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">test</span><span class="p">()</span>
-<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">            </span><span class="c">&#39;we retrieve an implementation of the IControl interface</span>
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">             </span><span class="c">&#39;获取接口的实现IControl</span>
 <a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">control1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CType</span><span class="p">(</span><span class="n">factory1</span><span class="p">.</span><span class="n">GetObject</span><span class="p">(</span><span class="s">&quot;control&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">IControl</span><span class="p">)</span>
-<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">            </span><span class="c">&#39; we use the</span>
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">             </span><span class="c">&#39; 使用该类</span>
 <a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
 <a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">res1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">control1</span><span class="p">.</span><span class="n">doSomethingInControlLayer</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="p">)</span>
 <a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">            </span><span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="n">res1</span><span class="p">)</span>
-<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="w">            </span><span class="c">&#39; we retrieve another implementation of the IControl interface</span>
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="w">             </span><span class="c">&#39; 获取接口的另一个实现 IControl</span>
 <a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">control2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CType</span><span class="p">(</span><span class="n">factory2</span><span class="p">.</span><span class="n">GetObject</span><span class="p">(</span><span class="s">&quot;control&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">IControl</span><span class="p">)</span>
-<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="w">            </span><span class="c">&#39; we use the</span>
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="w">             </span><span class="c">&#39; 使用该类</span>
 <a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
 <a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">res2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">control2</span><span class="p">.</span><span class="n">doSomethingInControlLayer</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span><span class="w"> </span><span class="n">b2</span><span class="p">)</span>
 <a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a><span class="w">            </span><span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">res2</span><span class="p">)</span>
@@ -994,13 +999,13 @@
 <a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Class</span>
 <a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
-<p>运行此测试将得到以下结果：</p>
+<p>执行此测试得到以下结果：</p>
 <p><img src="images/10000000000002BE0000009B6B9368AE.png" width="562" height="124" style="width:14.861cm;height:3.281cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE0000009B6B9368AE.png" /></p>
-<p>阅读本文彩色版本的读者会发现，结果显示为“绿色”，这表明测试成功。</p>
-<h2 id="77-spring">7.7. <span style="color: #4f81bd">另一种 Spring 配置文件</span></h2>
-<p>可以通过名为 [App.config] 的文件来配置 VB.NET 应用程序。该文件位于 Visual Studio 项目的根目录下：</p>
-<p><img src="images/10000000000000B200000091EFEC80C3.png" width="178" height="145" style="width:4.71cm;height:3.836cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000B200000091EFEC80C3.png" /></p>
-<p>Spring 可以利用此配置文件。请看以下 [App.config] 文件，其灵感来源于 [Spring.net] 文档中的示例：</p>
+<p>使用该文档彩色版本的读者会发现结果显示为“绿色”，这表明测试成功。</p>
+<h2 id="77-spring">7.7. <span style="color: #4f81bd">另一种 Spring 配置文件类型</span></h2>
+<p>应用程序 VB.net 可通过名为 [App.config] 的文件进行配置。该文件位于 Visual Studio 项目的根目录下：</p>
+<p><img src="images/10000000000000B200000091EFEC80C3.png" width="178" height="145" style="width:4.71cm;height:3.835cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000B200000091EFEC80C3.png" /></p>
+<p>Spring 可以利用此配置文件。以下是参考 [Spring.net] 文档中的示例编写的 [App.config] 文件：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot; ?&gt;</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nt">&lt;configuration&gt;</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">&lt;configSections&gt;</span>
@@ -1014,31 +1019,31 @@
 <a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">            </span><span class="nt">&lt;resource</span><span class="w"> </span><span class="na">uri=</span><span class="s">&quot;config://spring/objects&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="nt">&lt;/context&gt;</span>
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="nt">&lt;objects&gt;</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">             </span><span class="cm">&lt;!-- an initial configuration --&gt;</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">             </span><span class="cm">&lt;!-- the dao class --&gt;</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">             </span><span class="cm">&lt;!-- 初始配置 --&gt;</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">             </span><span class="cm">&lt;!-- DAO类 --&gt;</span>
 <a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">            </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;dao1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.dao.DaoImpl1, spring3tier&quot;</span><span class="nt">&gt;&lt;/object&gt;</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">             </span><span class="cm">&lt;!-- the domain class --&gt;</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">             </span><span class="cm">&lt;!-- 域类 --&gt;</span>
 <a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">            </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;domain1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.domain.DomainImpl1, spring3tier&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dao&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">                    </span><span class="nt">&lt;ref</span><span class="w"> </span><span class="na">object=</span><span class="s">&quot;dao1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">                </span><span class="nt">&lt;/property&gt;</span>
 <a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">            </span><span class="nt">&lt;/object&gt;</span>
-<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">             </span><span class="cm">&lt;!-- the control class --&gt;</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">             </span><span class="cm">&lt;!-- 控制类 --&gt;</span>
 <a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">            </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;control1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.control.ControlImpl1, spring3tier&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;domain&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">                    </span><span class="nt">&lt;ref</span><span class="w"> </span><span class="na">object=</span><span class="s">&quot;domain1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">                </span><span class="nt">&lt;/property&gt;</span>
 <a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">            </span><span class="nt">&lt;/object&gt;</span>
-<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="w">             </span><span class="cm">&lt;!-- a second configuration --&gt;</span>
-<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="w">             </span><span class="cm">&lt;!-- the dao class --&gt;</span>
+<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="w">             </span><span class="cm">&lt;!-- 第二个配置 --&gt;</span>
+<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="w">             </span><span class="cm">&lt;!-- DAO类 --&gt;</span>
 <a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="w">            </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;dao2&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.dao.DaoImpl2, spring3tier&quot;</span><span class="nt">&gt;&lt;/object&gt;</span>
-<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="w">             </span><span class="cm">&lt;!-- the domain class --&gt;</span>
+<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="w">             </span><span class="cm">&lt;!-- 域类 --&gt;</span>
 <a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="w">            </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;domain2&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.domain.DomainImpl2, spring3tier&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a><span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;dao&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a><span class="w">                    </span><span class="nt">&lt;ref</span><span class="w"> </span><span class="na">object=</span><span class="s">&quot;dao2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a><span class="w">                </span><span class="nt">&lt;/property&gt;</span>
 <a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a><span class="w">            </span><span class="nt">&lt;/object&gt;</span>
-<a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a><span class="w">             </span><span class="cm">&lt;!-- the control class --&gt;</span>
+<a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a><span class="w">             </span><span class="cm">&lt;!-- 控制类 --&gt;</span>
 <a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a><span class="w">            </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;control2&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.spring3tier.control.ControlImpl2, spring3tier&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a><span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;domain&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a><span class="w">                    </span><span class="nt">&lt;ref</span><span class="w"> </span><span class="na">object=</span><span class="s">&quot;domain2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -1049,14 +1054,14 @@
 <a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a><span class="nt">&lt;/configuration&gt;</span>
 </code></pre></div>
 <hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
-<p><strong>注</strong>：以下信息仅供参考。我不确定自己是否完全理解了上述配置文件中所有元素的含义。</p>
+<p><strong>注</strong>：以下信息仅供参考。我不确定是否正确理解了上述配置文件中所有元素的含义。</p>
 <hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
-<p>[App.config] 文件的 XML 语法要求其遵循以下格式：</p>
+<p>文件 [App.config] 的语法 XML 要求其必须符合以下语法：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">&lt;configuration&gt;</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>....
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nt">&lt;/configuration&gt;</span>
 </code></pre></div>
-<p>[App.config] 文件中各个部分的管理可以委托给外部程序。这就是 [ConfigSections] 部分所做的工作：</p>
+<p>[App.config]中各部分的处理可委托给外部程序。[ConfigSections]部分即采用了这种做法：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="w">    </span><span class="nt">&lt;configSections&gt;</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">        </span><span class="nt">&lt;sectionGroup</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;spring&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">            </span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;context&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Spring.Context.Support.ContextHandler, Spring.Core&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -1064,7 +1069,7 @@
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="nt">&lt;/sectionGroup&gt;</span>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="nt">&lt;/configSections&gt;</span>
 </code></pre></div>
-<p>上述代码表示，名为 [<strong>spring/context</strong>] 的配置段必须由位于 [<strong>Spring.Core.dll</strong>] 程序集中的 [<strong>Spring.Context.Support.ContextHandler</strong>] 类进行管理，而名为 [<strong>spring/objects</strong>] 的配置段必须由同样位于 [<strong>Spring.Core.dll</strong>] 程序集中的 [<strong>Spring.Context.Support.DefaultSectionHandler</strong>] 类进行处理。</p>
+<p>上述代码表示名为 [spring/context] 的部分应由 [Spring.Context.Support.ContextHandler] 类管理，该类该类位于[Spring.Core.dll]组件中；而名为[spring/objects]的段应由[Spring.Context.Support.DefaultSectionHandler]类管理，该类同样位于[Spring.Core.dll]组件中。</p>
 <p>[spring/context] 部分如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="w">    </span><span class="nt">&lt;spring&gt;</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">        </span><span class="nt">&lt;context</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Spring.Context.Support.XmlApplicationContext, Spring.Core&quot;</span><span class="nt">&gt;</span>
@@ -1073,18 +1078,18 @@
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>...
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="nt">&lt;/spring&gt;</span>
 </code></pre></div>
-<p>这似乎表明，配置文件中的 [spring/objects] 部分必须由 [<strong>Spring.Context.Support.XmlApplicationHandler</strong>] 类进行管理，该类位于 [<strong>Spring.Core.dll</strong>] 程序集之中。该类必须使用位于 [config://spring/objects] 的 XML 资源，即当前配置文件中的 [spring/objects] 部分。</p>
-<p>在 [spring/objects] 部分中，我们可以看到我们已经熟悉的 Spring 语法。 </p>
-<p>在 [<strong>App.config</strong>] 文件的 <strong>&lt;objects&gt;... &lt;/objects&gt;</strong> 部分中，我们为三层应用程序定义了两种可能的配置：</p>
+<p>这似乎表明，配置文件中的 [spring/objects] 部分应由 [Spring.Core.dll] 组件中的 [Spring.Context.Support.XmlApplicationHandler] 类管理。 该类必须使用资源 XML，其位置为 [ config://spring/objects]、c.a.d 以及当前配置文件中的 [spring/objects] 部分。</p>
+<p>在 [spring/objects] 部分中，我们可以看到我们已经习惯的 Spring 语法。 </p>
+<p>在文件 [App.config] 的 <strong>&lt;objects&gt;... &lt;/objects&gt;</strong> 部分中，我们为三层应用定义了两种可能的配置：</p>
 <ul>
   <li>一种使用接口实现的第 1 版
   </li>
-  <li>另一种则使用这些实现的第 2 版
+  <li>另一种使用这些接口的第 2 版实现
   </li>
 </ul>
 
-<p>那么，如何使用 [App.config] 文件呢？</p>
-<p>以下代码展示了一个使用前述 [App.config] 文件的控制台应用程序：</p>
+<p>那么，如何使用文件 [App.config] 呢？</p>
+<p>以下代码展示了一个利用前述 [App.config] 文件的控制台应用程序：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">System</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">Spring.Context</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">System.IO</span>
@@ -1098,19 +1103,19 @@
 <a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span><span class="k">Module</span><span class="w"> </span><span class="nn">MainTestSpring3tier</span>
 <a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
 <a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">            </span><span class="c">&#39; the Spring context that will allow us to retrieve singletons</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">             </span><span class="c">&#39; Spring 上下文，用于获取单例</span>
 <a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">contexte</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IApplicationContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CType</span><span class="p">(</span><span class="n">ConfigurationSettings</span><span class="p">.</span><span class="n">GetConfig</span><span class="p">(</span><span class="s">&quot;spring/context&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">IApplicationContext</span><span class="p">)</span>
-<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">            </span><span class="c">&#39; we retrieve a 1st implementation of the IControl interface</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">             </span><span class="c">&#39; 获取接口的第一个实现IControl</span>
 <a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">control1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CType</span><span class="p">(</span><span class="n">contexte</span><span class="p">.</span><span class="n">GetObject</span><span class="p">(</span><span class="s">&quot;control1&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">IControl</span><span class="p">)</span>
-<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">            </span><span class="c">&#39; we use the</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">             </span><span class="c">&#39; 使用该类</span>
 <a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
 <a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;res1({0},{1})={2}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="n">control1</span><span class="p">.</span><span class="n">doSomethingInControlLayer</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="p">))</span>
-<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">            </span><span class="c">&#39; we retrieve another implementation of the IControl interface</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">             </span><span class="c">&#39; 获取该接口的另一个实现 IControl</span>
 <a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">control2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CType</span><span class="p">(</span><span class="n">contexte</span><span class="p">.</span><span class="n">GetObject</span><span class="p">(</span><span class="s">&quot;control2&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">IControl</span><span class="p">)</span>
-<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">            </span><span class="c">&#39; we use the</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">             </span><span class="c">&#39; 使用该类</span>
 <a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
 <a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;res2({0},{1})={2}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="p">,</span><span class="w"> </span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">control2</span><span class="p">.</span><span class="n">doSomethingInControlLayer</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span><span class="w"> </span><span class="n">b2</span><span class="p">))</span>
-<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">            </span><span class="c">&#39; break</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">             </span><span class="c">&#39; 暂停</span>
 <a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Tapez [entrée] pour continuer...&quot;</span><span class="p">)</span>
 <a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">()</span>
 <a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
@@ -1120,54 +1125,54 @@
 </code></pre></div>
 <p><strong>注释</strong>：</p>
 <ul>
-  <li>在迄今为止使用的 NUnit 示例中，我们通过 [XmlObjectFactory] 对象获取所需的单例。在此处，所使用的对象类型为 [IApplicationContext]，这是一个 Spring 接口。它通过 [ConfigurationSettings] 类从 [App.config] 中获取，该类是 .NET 中传统上用于处理配置文件的类。
+  <li>在我们迄今为止使用的 NUnit 示例中，我们使用 [XmlObjectFactory] 对象来获取所需的单例。此处使用的对象类型为 [IApplicationContext]，这是一个 Spring 接口。 它是通过 [ConfigurationSettings] 类从 [App.config] 派生而来的，该类通常用于 .NET 中以处理配置文件。
   </li>
-  <li>我们请求 [spring/context] 节的处理程序。如果查阅 [App.config] 文件，我们会发现该处理程序的类型为 [XmlApplicationContext]，负责管理 [App.config] 中的 [spring/objects] 节。
+  <li>我们请求 [spring/context] 节点的管理器。 若查阅文件 [App.config]，会发现该文件属于 [XmlApplicationContext] 类型，且负责管理 [App.config] 中的 [spring/objects] 部分。
   </li>
-  <li>一旦获取了 [IApplicationContext] 对象，其使用方式就与我们迄今为止一直在使用的 [XmlObjectFactory] 对象完全相同。
+  <li>一旦获取了类型为 [IApplicationContext] 的对象，其使用方式与我们此前使用的 [XmlObjectFactory] 对象相同。
   </li>
 </ul>
 
-<p>前面的程序名为 [MainTestSpring3tier.vb]，位于 [tests] 包中：</p>
-<p><img src="images/10000000000001060000010C93E15CB4.png" width="210" height="214" style="width:5.547cm;height:5.674cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001060000010C93E15CB4.png" /></p>
-<p>[spring3tier] 项目已配置为使 [MainTestSpring3tier]：</p>
+<p>上述程序名为 [MainTestSpring3tier.vb]，位于 [tests] 包中：</p>
+<p><img src="images/10000000000001060000010C93E15CB4.png" width="210" height="214" style="width:5.547cm;height:5.667cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001060000010C93E15CB4.png" /></p>
+<p>项目 [spring3tier] 已配置为使用 [MainTestSpring3tier]：</p>
 <p><img src="images/100000000000023D000000B906CF66BC.png" width="573" height="185" style="width:15.159cm;height:4.895cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023D000000B906CF66BC.png" /></p>
-<p>运行该项目将产生以下结果：</p>
+<p>执行该项目后，结果如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>res1(10,20)=34
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>res2(10,20)=-10
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Tapez [entrée] pour continuer...
 </code></pre></div>
-<h2 id="78">7.8. <span style="color: #4f81bd">结论</span></h2>
-<p>Spring 框架在应用程序架构和配置方面都提供了真正的灵活性。我们使用了 IoC 概念，这是 Spring 的两大支柱之一。另一个支柱是 AOP（面向切面的编程），我们在此未作探讨。它允许您通过配置向类方法添加“行为”，而无需修改方法的代码。简而言之，AOP 允许您过滤对某些方法的调用：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000041C000000C4498DF1C9.png" width="526" height="98" style="display:inline-block; margin:4px;width:13.917cm;height:2.593cm;" class="odt-zoomable" data-zoom-src="images/100000000000041C000000C4498DF1C9.png" /></td></tr></table>
+<h2 id="78-conclusion">7.8. <span style="color: #4f81bd">Conclusion</span></h2>
+<p>Spring框架在应用程序架构和配置方面都提供了真正的灵活性。我们采用了IoC这一概念，它是Spring的两大支柱之一。 另一个支柱是 AOP（面向切面编程），我们尚未介绍。它允许通过配置为类的方法添加“行为”，而无需修改该方法的代码。简而言之，AOP 可以过滤对某些方法的调用：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000041C000000C4498DF1C9.png" width="526" height="98" style="display:inline-block; margin:4px;width:13.917cm;height:2.593cm;" class="odt-zoomable" data-zoom-src="images/100000000000041C000000C4498DF1C9.png" /></td></tr></table>
 
 <ul>
-  <li>该过滤器可以在目标方法 M 之前、之后，或两者同时执行。
+  <li>过滤器可在目标方法 M 之前、之后或两者同时执行。
   </li>
-  <li>方法 M 并不知道这些过滤器。它们在 Spring 配置文件中定义。
+  <li>方法 M 不会感知这些过滤器的存在。这些过滤器在 Spring 的配置文件中定义。
   </li>
-  <li>方法 M 的代码不会被修改。过滤器是必须实现的 Java 类。Spring 提供了预定义的过滤器，特别是用于管理 DBMS 事务的过滤器。
+  <li>方法 M 的代码不会被修改。过滤器是需要构建的 Java 类。Spring 提供了预定义的过滤器，特别是用于管理 SGBD 的事务。
   </li>
-  <li>过滤器是 Bean，因此需作为 Bean 在 Spring 配置文件中进行定义。
+  <li>过滤器是 Bean，因此作为 Bean 在 Spring 配置文件中进行定义。
   </li>
 </ul>
 
-<p>一个常见的过滤器是事务过滤器。假设有一个业务层方法 M，它对数据执行两项不可分割的操作（即一个工作单元）。它调用两个 DAO 层方法 M1 和 M2 来执行这两项操作。</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000023B00000111AB925E35.png" width="286" height="137" style="display:inline-block; margin:4px;width:7.555cm;height:3.612cm;" class="odt-zoomable" data-zoom-src="images/100000000000023B00000111AB925E35.png" /></td></tr></table>
+<p>一种常见的过滤器是事务过滤器。 假设业务层有一个方法 M，该方法对数据执行两项不可分割的操作（工作单元）。它调用 DAO 层中的两个方法 M1 和 M2 来完成这两项操作。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000023B00000111AB925E35.png" width="286" height="137" style="display:inline-block; margin:4px;width:7.555cm;height:3.612cm;" class="odt-zoomable" data-zoom-src="images/100000000000023B00000111AB925E35.png" /></td></tr></table>
 
-<p>由于位于业务层，方法 M 抽象掉了底层的数据存储。例如，它无需假设数据位于数据库管理系统（DBMS）中，也无需将对方法 M1 和 M2 的两次调用置于 DBMS 事务中。这些细节应由 DAO 层来处理。 解决上述问题的一种方案是在 DAO 层创建一个方法，该方法自身调用 M1 和 M2 方法，并将这些调用封装在 DBMS 事务中。</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000034B0000013F1B7FA371.png" width="422" height="159" style="display:inline-block; margin:4px;width:11.153cm;height:4.219cm;" class="odt-zoomable" data-zoom-src="images/100000000000034B0000013F1B7FA371.png" /></td></tr></table>
+<p>由于位于业务层，方法 M 忽略了这些数据的存储介质。例如，它无需 需要假设数据位于 SGBD 中，并将其对 M1 和 M2 方法的两次调用置于 SGBD 的事务中。 这些细节应由 DAO 层负责处理。 因此，解决上述问题的方案是在 DAO 层创建一个方法，该方法将自行调用 M1 和 M2 方法， 并将这些调用封装在 SGBD 的事务中。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000034B0000013F1B7FA371.png" width="422" height="160" style="display:inline-block; margin:4px;width:11.153cm;height:4.221cm;" class="odt-zoomable" data-zoom-src="images/100000000000034B0000013F1B7FA371.png" /></td></tr></table>
 
-<p>基于AOP的过滤方案更为灵活。它允许您定义一个过滤器，该过滤器在调用M之前会启动事务，并在调用结束后根据情况执行提交或回滚。</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000518000000B9BB4915E7.png" width="652" height="92" style="display:inline-block; margin:4px;width:17.251cm;height:2.447cm;" class="odt-zoomable" data-zoom-src="images/1000000000000518000000B9BB4915E7.png" /></td></tr></table>
+<p>AOP 的过滤方案更为灵活。它允许定义一个过滤器，该过滤器将在调用 M 之前启动一个事务，并在调用结束后根据具体情况执行提交或回滚。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000518000000B9BB4915E7.png" width="652" height="93" style="display:inline-block; margin:4px;width:17.251cm;height:2.448cm;" class="odt-zoomable" data-zoom-src="images/1000000000000518000000B9BB4915E7.png" /></td></tr></table>
 
 <p>这种方法有以下几个优点：</p>
 <ul>
-  <li>一旦定义了过滤器，它就可以应用于多个方法，例如所有需要事务的方法
+  <li>一旦定义了过滤器，即可将其应用于多个方法，例如所有需要事务的方法
   </li>
   <li>经过筛选的方法无需重写
   </li>
-  <li>由于要使用的过滤器是通过配置定义的，因此可以进行更改
+  <li>由于要使用的过滤器通过配置定义，因此可以进行更改
   </li>
 </ul>
 

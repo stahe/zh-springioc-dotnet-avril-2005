@@ -57,6 +57,8 @@
     
       <link rel="stylesheet" href="stylesheets/focus.css">
     
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -367,14 +369,14 @@
   
   
     <li class="md-nav__item">
-      <a href="onghianhuanioc.html" class="md-nav__link">
+      <a href="onghianhuan-ioc.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. 控制反转（IoC）
+    3. 控制反转 IoC
   
 
     
@@ -421,14 +423,14 @@
   
   
     <li class="md-nav__item">
-      <a href="spring-ioc-hiian.html" class="md-nav__link">
+      <a href="spring-ioc-hiianhian.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. Spring IoC 实践
+    5. Spring IoC 实践指南
   
 
     
@@ -539,21 +541,21 @@
 
 
 
-<h1 id="1">1. <span style="color: #365f91"><strong>简介</strong></span></h1>
-<p>文档的PDF版本可在此处获取 |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQCLulr97ff1TIY3dkV6E3rtAfzNgPYTBTTLJBB1_4yh_Yo?e=grs7Tb">HERE</a>|。</p>
-<p>本文中的示例请见 |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQBD8ilkSZuHSZM0jwgG8gHWAYT09DIhc4b_VvzfCtVhHq4?e=UuflNZ">此处</a>|。</p>
-<p><strong>本文档的目的</strong>：</p>
+<h1 id="1">1. <span style="color: #365f91">简介</span></h1>
+<p>文档的 PDF 版本已发布 |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQCLulr97ff1TIY3dkV6E3rtAfzNgPYTBTTLJBB1_4yh_Yo?e=Rg7Xu7">HERE</a>|。</p>
+<p>本文的示例为 |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQBD8ilkSZuHSZM0jwgG8gHWAYT09DIhc4b_VvzfCtVhHq4?e=pck8Qj">HERE</a>|。</p>
+<p><strong>文档目标</strong>：</p>
 <ul>
-<li>探讨 Spring 框架（<a href="http://www.springframework.org/"><u><span style="color: #0563c1">http://www.springframework.org</span></u></a>）在 .NET 应用程序（<a href="http://www.springframework.net/"><u><span style="color: #0563c1">http://www.springframework.net/</span></u></a>）中的配置与集成方案</li>
-<li>定义并应用 IoC（控制反转）的概念，也称为依赖注入</li>
+<li>探索 Spring 框架（<a href="http://www.springframework.org/"><u><span style="color: #0563c1">http://www.springframework.org</span></u></a>）在 .NET 应用程序（<a href="http://www.springframework.net/"><u><span style="color: #0563c1">http://www.springframework.net/</span></u></a>）中的配置与集成可能性</li>
+<li>定义并应用IoC（控制反转，Inversion of Control）的概念，该概念亦称为依赖注入（Dependency Injection）</li>
 </ul>
 <hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
-<p>本文所述观点基于我于2004年夏季阅读的一本书，<strong>即Rod Johnson所著</strong>的杰作<strong>：《J2EE开发无需EJB》（Wrox</strong>出版社）。</p>
+<p>本文所述观点源于2004年夏季阅读的一<strong>本书，即Rod Johnson的</strong>杰作<strong>：《J2EE Development without EJB》</strong>（<strong>Wrox出版社</strong>）。</p>
 <hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
-<p>此前已有一份<strong>针对Java的Spring IoC</strong>文档[<a href="https://stahe.github.io/zh-java-spring-dec-2015/ehengspring-uangiauen.html"><u><span style="color: #0563c1">https://stahe.github.io/zh-java-spring-dec-2015/ehengspring-uangiauen.html</span></u></a>]。本文涵盖相同内容，但将其适配至.NET平台。示例中使用的.NET语言为VB.NET。</p>
-<p><strong>Spring.net</strong> 目前仅处于 0.6 RC3 版本（2005 年 4 月）。 具体获取途径请参见附录。由于 <strong>Spring.net</strong> 仍处于开发阶段，目前仅移植了 Spring/Java 部分功能，但这些正是构成 Spring 核心的功能：<strong>控制反转</strong>（IoC）和<strong>面向切面编程</strong>（AOP）。本文仅介绍控制反转的概念。</p>
-<p>本文中介绍的部分技术细节未来可能会发生变化。Spring 的价值并不在于这些技术细节，而在于其设计理念。我们诚邀读者去探索这一理念。</p>
-<p>本文档的实践部分提供了若干示例，其中使用了 <strong>NUnit</strong> 测试类。这些类相当于 .NET 平台上的 Java <strong>JUnit</strong> 测试类。在附录中，您将了解到如何获取 [NUnit] 以及如何进行安装。 </p>
+<p>此前已撰写过一份<strong>针对Java的Spring文档IoC</strong>。 本文档沿用了相同的内容，但将其适配到了.NET平台。示例中使用的.NET语言是VB.NET。</p>
+<p>Spring.net目前仅处于0.6 RC3版本（2005年4月）。 附录中提供了其获取途径。由于 <strong>Spring.net</strong> 尚在开发中，目前仅移植了 Spring/Java 中的部分特性，但这些正是构成 Spring 核心的特性：<strong>控制反转</strong>（IoC）<strong>和面向切面的编程</strong> （AOP）。本文仅介绍控制反转这一概念。</p>
+<p>本文介绍的某些技术细节未来可能会发生变化。Spring 的价值并不在于这些技术细节，而在于其设计理念。我们诚邀读者深入探索这一理念。</p>
+<p>本文的实践部分提供了多个示例。这些示例使用了 <strong>Nunit</strong> 测试类。对于 .NET 而言，这些类相当于 Java 中的 <strong>Junit</strong> 测试类。在附录中，将说明如何获取 [Nunit] 以及如何安装它。 </p>
 
 
 

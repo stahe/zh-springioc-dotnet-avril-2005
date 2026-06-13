@@ -12,7 +12,7 @@
         <meta name="author" content="Serge Tahé">
       
       
-        <link rel="canonical" href="https://stahe.github.io/zh-springioc-dotnet-avril-2005/onghianhuanioc.html">
+        <link rel="canonical" href="https://stahe.github.io/zh-springioc-dotnet-avril-2005/onghianhuan-ioc.html">
       
       
         <link rel="prev" href="hiong-spring-eihiingonghengu.html">
@@ -29,7 +29,7 @@
     
     
       
-        <title>3. 控制反转（IoC） - Spring IoC for .NET</title>
+        <title>3. 控制反转 IoC - Spring IoC for .NET</title>
       
     
     
@@ -56,6 +56,8 @@
     
     
       <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -128,7 +130,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3. 控制反转（IoC）
+              3. 控制反转 IoC
             
           </span>
         </div>
@@ -366,14 +368,14 @@
         
       
       
-      <a href="onghianhuanioc.html" class="md-nav__link md-nav__link--active">
+      <a href="onghianhuan-ioc.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. 控制反转（IoC）
+    3. 控制反转 IoC
   
 
     
@@ -421,14 +423,14 @@
   
   
     <li class="md-nav__item">
-      <a href="spring-ioc-hiian.html" class="md-nav__link">
+      <a href="spring-ioc-hiianhian.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. Spring IoC 实践
+    5. Spring IoC 实践指南
   
 
     
@@ -539,58 +541,58 @@
 
 
 
-<h1 id="3-ioc">3. <span style="color: #365f91">控制反转（IoC）</span></h1>
-<p>现在让我们重点探讨 Spring 用于配置应用程序的<strong>“控制反转</strong>”（IoC）概念。为阐明这一概念，让我们回到之前测试应用程序的架构：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000563000000E5510FF327.png" width="680" height="113" style="display:inline-block; margin:4px;width:17.997cm;height:2.99cm;" class="odt-zoomable" data-zoom-src="images/1000000000000563000000E5510FF327.png" /></td></tr></table>
+<h1 id="3-ioc">3. <span style="color: #365f91">控制反转 IoC</span></h1>
+<p>现在让我们重点探讨 Spring 用于配置应用程序的<strong>“控制反转”</strong>（IoC, Inversion of Control）这一概念。为阐明这一概念，让我们回顾一下之前测试应用程序的架构：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000563000000E5510FF327.png" width="680" height="113" style="display:inline-block; margin:4px;width:17.997cm;height:2.988cm;" class="odt-zoomable" data-zoom-src="images/1000000000000563000000E5510FF327.png" /></td></tr></table>
 
-<p>为了从数据库管理系统（DBMS）中获取数据，测试类必须使用一个实现 [IArticlesDao] 接口的对象提供的服务，例如 [ArticlesDaoPlainODBC] 类型的对象。我们已经探讨了实例化此类对象的两种可能方案：</p>
+<p>为了访问 SGBD 的数据，测试类必须使用实现 [IArticlesDao] 接口的对象提供的服务，例如 [ArticlesDaoPlainODBC] 类型的对象。我们探讨了实例化此类对象的两种可能方案：</p>
 <ul>
-<li>在第一种方案中，测试类本身请求实例化一个 [ArticlesDaoPlainODBC] 类型的对象：</li>
+<li>在第一种方案中，测试类自行请求实例化一个 [ArticlesDaoPlainODBC] 类型的对象：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">    &lt;TestFixture()&gt;</span><span class="w"> </span>_
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">NunitTestArticlesDaoPlainOdbc</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="c">&#39; the test object</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">         </span><span class="c">&#39; 待测对象</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">articlesDao</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IArticlesDao</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="o">&lt;</span><span class="n">SetUp</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span>_
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="c">&#39; create an instance of the object to be tested</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">             </span><span class="c">&#39; 创建待测对象的实例</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="n">articlesDao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">New</span><span class="w"> </span><span class="n">ArticlesDaoPlainODBC</span><span class="p">(</span><span class="s">&quot;odbc-firebird-articles&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SYSDBA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;masterkey&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">...</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Class</span>
 </code></pre></div>
-<p><strong>代码中</strong>存在<strong>对类名的硬编码依赖</strong>。如果实现 [IArticlesDao] 接口的类发生变更，<strong>则</strong> [init] 方法中的代码<strong>也需要进行修改</strong>。对象之间存在以下关系：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000061E0000016399938C98.png" width="680" height="154" style="display:inline-block; margin:4px;width:17.997cm;height:4.08cm;" class="odt-zoomable" data-zoom-src="images/100000000000061E0000016399938C98.png" /></td></tr></table>
+<p><strong>代码中对类名存在硬编码依赖</strong>。如果接口 [IArticlesDao] 的实现类发生变更，则方法 [init] 的代码<strong>也需要相应修改</strong>。对象之间存在以下关系：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000061E0000016399938C98.png" width="680" height="154" style="display:inline-block; margin:4px;width:17.997cm;height:4.08cm;" class="odt-zoomable" data-zoom-src="images/100000000000061E0000016399938C98.png" /></td></tr></table>
 
-<p>[NunitTestArticlesDaoPlainOdbc] 类主动创建其所需的 [ArticlesDaoPlainODBC] 对象。回到“控制反转”这一术语，可以说正是该类“控制”着所需对象的创建。</p>
+<p>[NunitTestArticlesDaoPlainOdbc] 类会主动创建其所需的 [ArticlesDaoPlainODBC] 对象。回到“控制反转”这一术语，可以说该类拥有创建所需对象的“控制权”。</p>
 <ul>
-<li>第二个解决方案采用了不同的方法。测试类现在变成了如下形式：</li>
+<li>第二种方案的做法则有所不同。测试类已变为如下形式：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">    &lt;TestFixture()&gt;</span><span class="w"> </span>_
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">NunitSpringTestArticlesDaoPlainOdbc</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="c">&#39; the test object</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">         </span><span class="c">&#39; 待测对象</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">articlesDao</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IArticlesDao</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="o">&lt;</span><span class="n">SetUp</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span>_
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="c">&#39; retrieve an instance of the Spring object manufacturer</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">       </span><span class="c">&#39; 获取 Spring 对象生成器的实例</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">XmlObjectFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">New</span><span class="w"> </span><span class="n">XmlObjectFactory</span><span class="p">(</span><span class="k">New</span><span class="w"> </span><span class="n">FileStream</span><span class="p">(</span><span class="s">&quot;spring-config-plainodbc.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">))</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="c">&#39; request instantiation of the articles dao object</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">       </span><span class="c">&#39; 请求实例化 articles dao 对象</span>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="n">articlesDao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CType</span><span class="p">(</span><span class="n">factory</span><span class="p">.</span><span class="n">GetObject</span><span class="p">(</span><span class="s">&quot;articlesdao&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">IArticlesDao</span><span class="p">)</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="p">...</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Class</span>
 </code></pre></div>
 <p>该机制可概括如下：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005B7000001798106E4DD.png" width="680" height="175" style="display:inline-block; margin:4px;width:17.997cm;height:4.637cm;" class="odt-zoomable" data-zoom-src="images/10000000000005B7000001798106E4DD.png" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000005B7000001798106E4DD.png" width="680" height="175" style="display:inline-block; margin:4px;width:17.997cm;height:4.637cm;" class="odt-zoomable" data-zoom-src="images/10000000000005B7000001798106E4DD.png" /></td></tr></table>
 
-<p>在此，测试类并未主动请求创建 [ArticlesDaoPlainODBC] 对象，而是仅向 Spring 请求该对象的引用。若对象已存在，Spring 便返回其引用；若不存在，Spring 则会创建该对象。测试类已无法控制 [ArticlesDaoPlainODBC] 对象的创建过程，它仅需请求该对象的引用。 在此情况下，该请求将迫使 Spring 创建该对象。然而，在另一种情境下，可以设想所请求的对象已应应用程序的要求被创建。此时 Spring 不会重新创建该对象，而是返回对现有对象（单例）的引用。控制反转（IoC）的概念在此处的含义是：</p>
+<p>在此，测试类并未主动请求创建 [ArticlesDaoPlainODBC] 对象。它仅向 Spring 请求该对象的引用。如果对象存在，Spring 便返回其引用；如果不存在，则会创建该对象。 测试类已不再控制 [ArticlesDaoPlainODBC] 对象的创建。它仅请求该对象的引用。在此情况下，该请求将迫使 Spring 创建该对象。但在其他场景中，可以设想被请求的对象已由应用程序提前创建。 此时 Spring 不会重新创建该对象，而是返回对已存在对象（单例）的引用。控制反转（IoC）的概念在此处的含义是：</p>
 <ul>
-<li>应用程序绝不会主动创建所需的单例，它仅请求这些单例的引用。</li>
-<li>由 Spring 决定在首次请求单例引用时创建该单例</li>
+<li>应用程序绝不会主动创建其所需的单例，它仅请求这些单例的引用。</li>
+<li>Spring会在首次请求该单例引用时决定是否创建该单例</li>
 </ul>
 
 

@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://stahe.github.io/zh-springioc-dotnet-avril-2005/iaihuu.html">
       
       
-        <link rel="prev" href="onghianhuanioc.html">
+        <link rel="prev" href="onghianhuan-ioc.html">
       
       
-        <link rel="next" href="spring-ioc-hiian.html">
+        <link rel="next" href="spring-ioc-hiianhian.html">
       
       
         
@@ -56,6 +56,8 @@
     
     
       <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -357,14 +359,14 @@
   
   
     <li class="md-nav__item">
-      <a href="onghianhuanioc.html" class="md-nav__link">
+      <a href="onghianhuan-ioc.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. 控制反转（IoC）
+    3. 控制反转 IoC
   
 
     
@@ -421,14 +423,14 @@
   
   
     <li class="md-nav__item">
-      <a href="spring-ioc-hiian.html" class="md-nav__link">
+      <a href="spring-ioc-hiianhian.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. Spring IoC 实践
+    5. Spring IoC 实践指南
   
 
     
@@ -540,34 +542,33 @@
 
 
 <h1 id="4">4. <span style="color: #365f91">依赖注入</span></h1>
-<p>依赖注入可以被视为控制反转的必然结果。我们将通过一个新示例来说明这一点。请看以下这个三层Web应用程序：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006E400000137452FE004.png" width="680" height="120" style="display:inline-block; margin:4px;width:17.997cm;height:3.173cm;" class="odt-zoomable" data-zoom-src="images/10000000000006E400000137452FE004.png" /></td></tr></table>
+<p>依赖注入可视为控制反转的自然结果。我们将通过一个新示例进行说明。考虑以下三层Web应用程序：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006E400000137452FE004.png" width="680" height="120" style="display:inline-block; margin:4px;width:17.997cm;height:3.173cm;" class="odt-zoomable" data-zoom-src="images/10000000000006E400000137452FE004.png" /></td></tr></table>
 
-<p>我们假设对DAO层的访问由前面讨论过的[IArticlesDao]接口控制，且整个应用程序是一个基于Web的购物应用程序。商品由[Dao]层管理。我们假设对业务层的访问由以下接口控制：</p>
+<p>假设对 DAO 层的访问由之前讨论过的 [IArticlesDao] 接口控制，且整个应用程序是一个用于在网上购买商品的 Web 应用程序。 商品由 [Dao] 层管理。假设对业务层的访问由以下接口控制：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">Public</span><span class="w"> </span><span class="k">Interface</span><span class="w"> </span><span class="n">IArticlesDomain</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">Public</span><span class="w"> </span><span class="k">Interface</span><span class="w"> </span><span class="n">IArticlesDomain</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="c">&#39; buy a basket of items</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">Sub</span><span class="w"> </span><span class="nf">acheter</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">panier</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">Panier</span><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="c">&#39; get the list of articles</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">Function</span><span class="w"> </span><span class="nf">getAllArticles</span><span class="p">()</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IList</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c">&#39; get a specific item</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">Function</span><span class="w"> </span><span class="nf">getArticleById</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">idArticle</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">Article</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="c">&#39; to record errors</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">ReadOnly</span><span class="w"> </span><span class="k">Property</span><span class="w"> </span><span class="nf">erreurs</span><span class="p">()</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">ArrayList</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">End</span><span class="w"> </span><span class="k">Interface</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">     </span><span class="c">&#39; 购买一篮商品</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">Sub</span><span class="w"> </span><span class="nf">acheter</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">panier</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">Panier</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">     </span><span class="c">&#39; 获取商品列表</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">Function</span><span class="w"> </span><span class="nf">getAllArticles</span><span class="p">()</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IList</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">     </span><span class="c">&#39; 获取特定商品</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">Function</span><span class="w"> </span><span class="nf">getArticleById</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">idArticle</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">Article</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">     </span><span class="c">&#39; 用于记录错误</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">ReadOnly</span><span class="w"> </span><span class="k">Property</span><span class="w"> </span><span class="nf">erreurs</span><span class="p">()</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">ArrayList</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">End</span><span class="w"> </span><span class="k">Interface</span>
 </code></pre></div>
-<p>我们不会过多探讨各种方法的含义。我们只需指出，[getAllArticles] 方法（其作用是检索所有待售商品的列表）需要访问数据。为了获取数据，它必须调用 [IArticlesDao] 接口。实现 [IArticlesDomain] 接口的类的主体结构可能如下所示：</p>
+<p>我们不会过多探讨各个方法的含义。只需注意，用于获取所有在售商品列表的方法 [getAllArticles] 需要访问相关数据。为了获取这些数据，它必须调用接口 [IArticlesDao]。 [IArticlesDomain] 接口的实现类骨架可能如下所示：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">istia.st.articles.dao</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">...</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.articles.domain</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">AchatsArticles</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">Implements</span><span class="w"> </span><span class="n">IArticlesDomain</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="c">&#39;private fields</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">         </span><span class="c">&#39;私有字段</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">_articlesDao</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IArticlesDao</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">_erreurs</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">ArrayList</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="c">&#39; manufacturer</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">         </span><span class="c">&#39; 构造函数</span>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">New</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">articlesDao</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IArticlesDao</span><span class="p">)</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="n">_articlesDao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">articlesDao</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
@@ -575,8 +576,8 @@
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Class</span>
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
-<p>如前所述，业务层接口的某些方法需要向 [Dao] 层请求数据。因此，我们实现 [IArticlesDomain] 接口的 [AchatsArticles] 类需要一个指向 [IArticlesDao] 接口实现类的引用。上文中的私有字段 [_articlesDao] 即充当此引用。该引用是在构造 [AchatsArticles] 对象时提供的。</p>
-<p>假设 [ItemPurchases] 类已经编写完成，我们希望使用 [Nunit] 测试对其进行测试。让我们构建此测试，使其使用 Spring 配置文件：</p>
+<p>如前所述，业务层接口中的某些方法需要向 [Dao] 层请求数据。 因此，我们对接口 [IArticlesDomain] 的实现类 [AchatsArticles] 需要一个指向接口 [IArticlesDao] 实现类的引用。 上文中的私有字段 [_articlesDao] 即为该引用。该引用是在构造 [AchatsArticles] 对象时提供的。</p>
+<p>假设已编写了类 [AchatsArticles]，且希望使用类型为 [Nunit] 的测试用例对其进行测试。让我们构建该测试用例，使其使用 Spring 配置文件：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">...</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">Spring.Objects.Factory.Xml</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">System.IO</span>
@@ -584,20 +585,20 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">TestFixture</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span>_
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">NunitSpringTestArticlesDomain</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="c">&#39; the test object</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">         </span><span class="c">&#39; 待测试对象</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">articlesDomain</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IArticlesDomain</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="o">&lt;</span><span class="n">SetUp</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span>_
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="c">&#39; retrieve an instance of the Spring object manufacturer</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">       </span><span class="c">&#39; 获取 Spring 对象生成器的实例</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">XmlObjectFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">New</span><span class="w"> </span><span class="n">XmlObjectFactory</span><span class="p">(</span><span class="k">New</span><span class="w"> </span><span class="n">FileStream</span><span class="p">(</span><span class="s">&quot;spring-config-domain.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">))</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="c">&#39; request instantiation of the articles dao object</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">       </span><span class="c">&#39; 请求实例化articles dao对象</span>
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">            </span><span class="n">articlesDomain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CType</span><span class="p">(</span><span class="n">factory</span><span class="p">.</span><span class="n">GetObject</span><span class="p">(</span><span class="s">&quot;articlesdomain&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">IArticlesDao</span><span class="p">)</span>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">...</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Class</span>
 </code></pre></div>
-<p>Spring 的配置文件 [spring-config-domain.xml] 内容会是什么？可能如下所示：</p>
+<p>Spring 的配置文件 [spring-config-domain.xml] 内容是什么？可能如下所示：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot; ?&gt;</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">&lt;!DOCTYPE objects PUBLIC &quot;-//SPRING//DTD OBJECT//EN&quot;</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">&quot;http://www.springframework.net/dtd/spring-objects.dtd&quot;&gt;</span>
@@ -605,7 +606,7 @@
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nt">&lt;objects&gt;</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&lt;description&gt;</span>Gestion<span class="w"> </span>d&#39;une<span class="w"> </span>table<span class="w"> </span>d&#39;articles<span class="nt">&lt;/description&gt;</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">     </span><span class="cm">&lt;!-- the IArticlesDao interface implementation class --&gt;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">     </span><span class="cm">&lt;!-- 接口的实现类 IArticlesDao --&gt;</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;articlesdao&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.articles.dao.ArticlesDaoPlainODBC, articlesdao&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="nt">&lt;constructor-arg</span><span class="w"> </span><span class="na">index=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">            </span><span class="nt">&lt;value&gt;</span>odbc-firebird-articles<span class="nt">&lt;/value&gt;</span>
@@ -618,7 +619,7 @@
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="nt">&lt;/constructor-arg&gt;</span>
 <a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="nt">&lt;/object&gt;</span>
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">     </span><span class="cm">&lt;!-- the IArticlesDomain interface implementation class --&gt;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">     </span><span class="cm">&lt;!-- 接口的实现类 IArticlesDomain --&gt;</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">  </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;articlesdomain&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;istia.st.articles.domain.AchatsArticles, articlesdomain&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">      </span><span class="nt">&lt;constructor-arg</span><span class="w"> </span><span class="na">index=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="nt">&lt;ref</span><span class="w"> </span><span class="na">object=</span><span class="s">&quot;articlesdao&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -626,20 +627,20 @@
 <a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">  </span><span class="nt">&lt;/object&gt;</span>
 <a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="nt">&lt;/objects&gt;</span>
 </code></pre></div>
-<p>此文件此前已用于从 [Dao] 层实例化 [IArticlesDao] 单例，现在我们在此基础上添加了从业务层实例化 [IArticlesDomain] 单例的代码。这将如何构建？</p>
+<p>该文件是此前用于实例化 [Dao] 层中 [IArticlesDao] 类型单例的文件，我们在此基础上添加了用于实例化业务层中 [IArticlesDomain] 类型单例的代码。该单例将如何构建？</p>
 <ul>
-<li>外部代码通过配置文件向 Spring 请求名为“articlesdomain”的单例引用。我们的测试类中的 [init] 方法就是如此：</li>
+<li>外部代码向Spring请求配置文件中名为“articlesdomain”的单例的引用。这正是我们测试类中[init]方法的情况：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">        &lt;SetUp()&gt;</span><span class="w"> </span>_
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">      </span><span class="c">&#39; retrieve an instance of the Spring object manufacturer</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">       </span><span class="c">&#39; 获取 Spring 对象生成器的实例</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">            </span><span class="k">Dim</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">XmlObjectFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">New</span><span class="w"> </span><span class="n">XmlObjectFactory</span><span class="p">(</span><span class="k">New</span><span class="w"> </span><span class="n">FileStream</span><span class="p">(</span><span class="s">&quot;spring-config-domain.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">))</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="c">&#39; request instantiation of the articles dao object</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">       </span><span class="c">&#39; 请求实例化 articles dao 对象</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="n">articlesDomain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CType</span><span class="p">(</span><span class="n">factory</span><span class="p">.</span><span class="n">GetObject</span><span class="p">(</span><span class="s">&quot;articlesdomain&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">IArticlesDao</span><span class="p">)</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 </code></pre></div>
 <ul>
-<li>Spring 在其配置文件中查找该单例的定义。它发现要实例化该单例，需要另一个名为“articlesdao”的单例：</li>
+<li>Spring 在其配置文件中找到了该单例的定义。它发现，要实例化该单例，需要另一个名为“articlesdao”的单例：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">  </span><span class="nt">&lt;object</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;articlesdomain&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;istia.st.articles.domain.AchatsArticles, articlesdomain&quot;</span><span class="nt">&gt;</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">      </span><span class="nt">&lt;constructor-arg</span><span class="w"> </span><span class="na">index=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
@@ -648,23 +649,23 @@
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&lt;/object&gt;</span>
 </code></pre></div>
 <ul>
-<li>随后，Spring 将实例化“articlesdao”单例。我们之前已经解释过它是如何实现的。</li>
-<li>完成此操作后，它便可以实例化“articlesdomain”单例，并将对其的引用返回给请求它的代码。</li>
+<li>Spring 随后将实例化单例“articlesdao”。我们之前已经解释过它是如何实现的。</li>
+<li>完成此操作后，它便可实例化单例“articlesdomain”，并将该实例的引用返回给请求它的代码。</li>
 </ul>
-<p>该机制可通过以下图示进行说明：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000052A000001C675CF8BE7.png" width="661" height="227" style="display:inline-block; margin:4px;width:17.489cm;height:6.006cm;" class="odt-zoomable" data-zoom-src="images/100000000000052A000001C675CF8BE7.png" /></td></tr></table>
+<p>该机制可概括如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000052A000001C675CF8BE7.png" width="661" height="227" style="display:inline-block; margin:4px;width:17.489cm;height:6.006cm;" class="odt-zoomable" data-zoom-src="images/100000000000052A000001C675CF8BE7.png" /></td></tr></table>
 
-<p>我们可以看到，Spring 已管理了“articlesdomain”单例对“articlesdao”单例的依赖关系。要以这种方式使用 Spring，我们需要构建一个带有构造函数的类，该构造函数将依赖的单例作为参数：</p>
+<p>可见，Spring 已处理了单例“articlesdomain”对单例“articlesdao”的依赖关系。为了以这种方式使用 Spring，我们需要构建一个带有构造函数的类，该构造函数将依赖的单例作为参数：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">Imports</span><span class="w"> </span><span class="nn">istia.st.articles.dao</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">...</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.articles.domain</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="nc">AchatsArticles</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="k">Implements</span><span class="w"> </span><span class="n">IArticlesDomain</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="c">&#39;private fields</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">         </span><span class="c">&#39;私有字段</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="k">Private</span><span class="w"> </span><span class="n">_articlesDao</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IArticlesDao</span>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="c">&#39; manufacturer</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">         </span><span class="c">&#39; 构造函数</span>
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="k">Public</span><span class="w"> </span><span class="k">Sub</span><span class="w"> </span><span class="nf">New</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">articlesDao</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="n">IArticlesDao</span><span class="p">)</span>
 <a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">            </span><span class="n">_articlesDao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">articlesDao</span>
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
@@ -672,10 +673,10 @@
 <a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Class</span>
 <a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
-<p>“依赖注入”这一术语涵盖了以下两方面：</p>
+<p>“依赖注入”这一术语同时涵盖：</p>
 <ul>
-<li>基于依赖关系来构造待实例化类的具体方式</li>
-<li>Spring 在实例化这些类时管理这些依赖关系的方式</li>
+<li>根据依赖关系构建待实例化类的特定方式</li>
+<li>Spring在实例化这些类时管理这些依赖关系的方式</li>
 </ul>
 
 

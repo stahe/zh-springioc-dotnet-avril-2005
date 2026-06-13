@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://stahe.github.io/zh-springioc-dotnet-avril-2005/hiong-spring-eihianengingonghengu.html">
       
       
-        <link rel="prev" href="spring-ioc-hiian.html">
+        <link rel="prev" href="spring-ioc-hiianhian.html">
       
       
         <link rel="next" href="ieueangn.html">
@@ -56,6 +56,8 @@
     
     
       <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -357,14 +359,14 @@
   
   
     <li class="md-nav__item">
-      <a href="onghianhuanioc.html" class="md-nav__link">
+      <a href="onghianhuan-ioc.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. 控制反转（IoC）
+    3. 控制反转 IoC
   
 
     
@@ -411,14 +413,14 @@
   
   
     <li class="md-nav__item">
-      <a href="spring-ioc-hiian.html" class="md-nav__link">
+      <a href="spring-ioc-hiianhian.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. Spring IoC 实践
+    5. Spring IoC 实践指南
   
 
     
@@ -631,72 +633,76 @@
 
 
 
-<h1 id="6-spring">6. <span style="color: #365f91"><strong><span style="color: #365f91">使用 Spring 配置三层应用程序</span></strong></span></h1>
-<p>在此，我们将通过一个示例探讨如何使用 Spring 配置三层应用程序。此类应用程序的典型代表是 Web 应用程序。</p>
-<h2 id="61">6.1. <span style="color: #4f81bd">问题</span></h2>
+<h1 id="6-spring">6. <span style="color: #365f91">使用 Spring 配置三层应用程序</span></h1>
+<p>本文将通过一个示例，探讨如何利用 Spring 配置三层应用程序。此类应用程序的常见示例是 Web 应用程序。</p>
+<h2 id="61">6.1. <span style="color: #4f81bd"><strong>问题</strong></span></h2>
 <p>我们希望构建一个具有以下结构的三层应用程序：</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006D1000001251119C6A2.png" width="680" height="114" style="display:inline-block; margin:4px;width:17.997cm;height:3.022cm;" class="odt-zoomable" data-zoom-src="images/10000000000006D1000001251119C6A2.png" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006D1000001251119C6A2.png" width="680" height="114" style="display:inline-block; margin:4px;width:17.997cm;height:3.022cm;" class="odt-zoomable" data-zoom-src="images/10000000000006D1000001251119C6A2.png" /></td></tr></table>
 
 <ul>
-  <li>通过使用接口，使这三层相互独立
+  <li>通过使用接口，使三层相互独立
   </li>
   <li>三层的集成将由 Spring 负责
   </li>
-  <li>我们将为这三层分别创建独立的包，分别命名为 [<b>control]</b>、[<b>domain] </b>和 [<b>dao]</b>。此外，[<b>tests]</b> 包将包含测试应用程序。
+  <li>将为三个层分别创建独立的包，分别命名为 [control]、[domain] 和 [dao]。另外，[tests] 包将包含测试应用程序。
   </li>
 </ul>
+
 <h2 id="62">6.2. <span style="color: #4f81bd">数据访问层</span></h2>
 <p>DAO层将实现以下接口：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.spring3tier.dao</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Interface</span><span class="w"> </span><span class="n">IDao</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="c">&#39; do something in the diaper [dao]</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">         </span><span class="c">&#39; 在层中执行某项操作 [dao]</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInDaoLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Interface</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
 <ul>
-  <li>编写两个类 <b>Dao1Impl1 </b>和 <b>Dao1Impl2</b>，它们实现 <b>IDao</b> 接口。<b>Dao1Impl1</b>.<b>doSomethingInDaoLayer</b> 方法将返回 a+b，而 <b>Dao1Impl2</b>.<b>doSomethingInDaoLayer</b> 方法将返回 a-b。
+  <li>编写两个类 <b>Dao1Impl1 </b>和 <b>Dao1Impl2</b>，它们实现接口 <b>IDao</b>。 方法 <b>Dao1Impl1</b>.<b>doSomethingInDaoLayer </b>的返回值为 a+b，而方法 <b>Dao1Impl2</b>.<b>doSomethingInDaoLayer </b>的返回值为 a-b。
   </li>
-  <li>编写一个 NUnit 测试类来测试前两个类
+  <li>编写一个测试类 NUnit 来测试前两个类
   </li>
 </ul>
+
 <h2 id="63">6.3. <span style="color: #4f81bd">业务层</span></h2>
 <p>业务层将实现以下接口：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.spring3tier.domain</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Interface</span><span class="w"> </span><span class="n">IDomain</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="c">&#39; do something in the [domain] layer</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">         </span><span class="c">&#39; 在层中执行某项操作 [domain]</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInDomainLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Interface</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
 <ul>
-  <li>编写两个类 <b>Domain1Impl1 </b>和 <b>Domain1Impl2</b>，它们实现 <b>IDomain</b> 接口。这些类将有一个类型为 <b>IDao</b> 的私有字段，该字段可通过公共属性进行初始化。 [<b>Domain1Impl1]</b> 类的 <b>doSomethingInDomainL</b>ayer 方法将 a 和 b 各加 1，然后将这两个参数传递给接收到的 <b>IDao1</b> 对象的 <b>doSomethingInDaoLayer</b> 方法。[Domain1Impl2] 类的 <b>doSomethingInDomainLayer</b> 方法将在执行相同操作之前，将 a 和 b 各减 1。
+  <li>编写两个类 <b>Domain1Impl1 </b>和 <b>Domain1Impl2</b>，它们实现接口 <b>IDomain</b>。这些类将有一个类型为 <b>IDao</b> 的私有字段，该字段可通过一个公共属性进行初始化。 类 [DomainImpl1] 中的方法 <b>doSomethingInDomainLayer </b>将 a 和 b 各增加 1，然后将这两个参数传递给接收到的类型为 <b>IDao1</b> 的对象的方法 <b>doSomethingInDaoLayer</b>。 类 [<b>Domain1Impl2elle</b>] 的方法 <b>doSomethingInDomainLayer </b>将 a 和 b 减去 1，然后执行相同的操作。
   </li>
-  <li>编写一个 NUnit 测试类来测试前两个类
+  <li>编写一个测试类 NUnit 来测试前两个类
   </li>
 </ul>
-<h2 id="64">6.4. <span style="color: #4f81bd">用户界面层</span></h2>
+
+<h2 id="64">6.4. <span style="color: #4f81bd"><strong>用户界面层</strong></span></h2>
 <p>用户界面层将实现以下接口：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">Namespace</span><span class="w"> </span><span class="nn">istia.st.spring3tier.control</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">Public</span><span class="w"> </span><span class="k">Interface</span><span class="w"> </span><span class="n">IControl</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="c">&#39; do something in the [control] layer</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">         </span><span class="c">&#39; 在图层中执行某项操作 [control]</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="k">Function</span><span class="w"> </span><span class="nf">doSomethingInControlLayer</span><span class="p">(</span><span class="k">ByVal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">,</span><span class="w"> </span><span class="k">ByVal</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span><span class="p">)</span><span class="w"> </span><span class="ow">As</span><span class="w"> </span><span class="kt">Integer</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">End</span><span class="w"> </span><span class="k">Interface</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">End</span><span class="w"> </span><span class="k">Namespace</span>
 </code></pre></div>
 <ul>
-  <li>编写两个类 <b>Control1Impl1 </b>和 <b>Control1Impl2</b>，它们实现 <b>IControl1</b> 接口。这些类将有一个类型为 <b>IDomain</b> 的私有字段，该字段可通过公共属性进行初始化。 [<b>Control1Impl1]</b> 类的 doSomethingInControlLayer 方法将 a 和 b 各加 1，然后将这两个参数传递给接收到的 <b>IDomain1</b> 对象的 <b>doSomethingInDomainLayer</b> 方法。另一方面，[<b>Control1Impl2]</b> 类的 <b>doSomethingInControlLayer</b> 方法将在执行相同操作之前，将 a 和 b 各减 1。
+  <li>编写两个类 <b>Control1Impl1 </b>和 <b>Control1Impl2</b>，它们实现接口 <b>IContro1</b>。这些类将有一个类型为 <b>IDomain </b>的私有字段，该字段可通过一个公共属性进行初始化。 类 [Control1Impl1] 中的方法 <b>doSomethingInControlLayer </b>将 a 和 b 各增加 1，然后将这两个参数传递给接收到的类型为 <b>IDomain1</b> 的对象中的方法 <b>doSomethingInDomainLayer</b>。 而类 [Control11Impl2] 的方法 <b>doSomethingInControlLayer</b> 则会先将 a 和 b 减去 1，然后执行相同的操作。
   </li>
-  <li>编写一个 NUnit 测试类来测试前两个类
+  <li>编写一个测试类 NUnit 来测试前两个类
   </li>
 </ul>
+
 <h2 id="65-spring">6.5. <span style="color: #4f81bd">与 Spring 的集成</span></h2>
 <ul>
-  <li>编写一个 Spring 配置文件，用于确定前三个层级各自应使用哪些类
+  <li>编写一个 Spring 配置文件，用于决定前三个层级各自应使用哪些类
   </li>
-  <li>编写一个 NUnit 测试类，使用不同的 Spring 配置来突出应用程序的灵活性
+  <li>编写一个测试类 NUnit，使用不同的 Spring 配置，以突出所编写应用程序的灵活性
   </li>
-  <li>编写一个独立应用程序（main 方法），向已实现的 <b>IControl</b> 接口的 [doSomethingInControlLayer] 方法传递两个参数，并显示该接口返回的结果。
+  <li>编写一个独立应用程序（main方法），向已实现的<b>IControl接口</b>中的[doSomethingInControlLayer]方法传递两个参数，并显示该接口渲染的结果。
   </li>
 </ul>
 
